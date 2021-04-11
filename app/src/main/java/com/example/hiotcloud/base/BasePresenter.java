@@ -4,6 +4,7 @@ package com.example.hiotcloud.base;
  * MVP架构presenter层基类
  */
 public class BasePresenter<V extends BaseView> {
+
     private V view;
 
     public BasePresenter() {

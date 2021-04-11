@@ -10,20 +10,25 @@ import android.widget.Toast;
 
 import com.example.hiotcloud.R;
 import com.example.hiotcloud.base.BaseActivity;
+import com.example.hiotcloud.test.dagger2test.DaggerPresenterComponent;
+import com.example.hiotcloud.test.dagger2test.PresenterComponent;
 import com.example.hiotcloud.test.mvptest.model.User;
+
+import javax.inject.Inject;
+
+import dagger.internal.DaggerCollections;
 
 public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> implements TestView{
 
-    private TestPresenter presenter;
+    @Inject
+    TestPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-
-
-        presenter = new TestPresenter();
+        getActivityComponent().inject(this);
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_test_mvp);
 
+        setContentView(R.layout.activity_test_mvp);
         final EditText etUserName = findViewById(R.id.et_user_name);
         final EditText etPassword = findViewById(R.id.et_password);
         final Button btnLogin = findViewById(R.id.btn_login);
@@ -46,6 +51,14 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
     @Override
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * 创建注入器
+     * @return
+     */
+    public PresenterComponent getActivityComponent(){
+        return DaggerPresenterComponent.builder().build();
     }
 }
  
