@@ -52,13 +52,5 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
-
-    /**
-     * 创建注入器
-     * @return
-     */
-    public PresenterComponent getActivityComponent(){
-        return DaggerPresenterComponent.builder().build();
-    }
 }
  
