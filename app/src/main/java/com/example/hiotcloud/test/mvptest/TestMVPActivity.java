@@ -1,7 +1,5 @@
 package com.example.hiotcloud.test.mvptest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,13 +8,9 @@ import android.widget.Toast;
 
 import com.example.hiotcloud.R;
 import com.example.hiotcloud.base.BaseActivity;
-import com.example.hiotcloud.test.dagger2test.DaggerPresenterComponent;
-import com.example.hiotcloud.test.dagger2test.PresenterComponent;
 import com.example.hiotcloud.test.mvptest.model.User;
 
 import javax.inject.Inject;
-
-import dagger.internal.DaggerCollections;
 
 public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> implements TestView{
 
@@ -25,7 +19,6 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        getActivityComponent().inject(this);
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_test_mvp);
@@ -46,6 +39,11 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
     @Override
     public TestPresenter createPresenter() {
         return presenter;
+    }
+
+    @Override
+    public void injectIndependies() {
+        getActivityComponent().inject(this);
     }
 
     @Override
