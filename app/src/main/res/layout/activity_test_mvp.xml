@@ -3,28 +3,32 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".test.mvptest.TestMVPActivity"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".test.mvptest.TestMVPActivity">
 
 
     <EditText
         android:id="@+id/et_user_name"
-        android:hint="请输入名字"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="请输入名字" />
 
     <EditText
         android:id="@+id/et_password"
-        android:hint="请输入密码"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:hint="请输入密码" />
 
 
     <Button
         android:id="@+id/btn_login"
-        android:text="登录"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:text="登录" />
 
-
+    <LinearLayout
+        android:id="@+id/container_fragment_test"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:orientation="vertical" />
 </LinearLayout>

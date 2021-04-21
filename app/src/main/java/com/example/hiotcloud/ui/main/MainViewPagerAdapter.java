@@ -1,4 +1,4 @@
-package com.example.hiotcloud.main;
+package com.example.hiotcloud.ui.main;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -24,13 +24,16 @@ class MainViewPagerAdapter extends FragmentPagerAdapter{
         switch (position){
             case Constans.MAIN_VIEWPAGER_INDEX_MESSAGE:
                 //创建信息Frament todo
+                fragment = MessageFragmen.newInstance();
                 break;
-                //创建设备Frament
             case Constans.MAIN_VIEWPAGER_INDEX_EQUIPMENT:
+                fragment = EquipmentFragment.newInstance();
                 break;
             case Constans.MAIN_VIEWPAGER_INDEX_SCENE:
+                fragment = SceneFragment.newInstance();
                 break;
             case Constans.MAIN_VIEWPAGER_INDEX_MINE:
+                fragment = MineFragment.newInstance();
                 break;
             default:
         }

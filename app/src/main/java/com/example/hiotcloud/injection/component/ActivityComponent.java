@@ -16,7 +16,7 @@
 package com.example.hiotcloud.injection.component;
 
 
-import com.example.hiotcloud.main.MainActivity;
+import com.example.hiotcloud.ui.main.MainActivity;
 import com.example.hiotcloud.injection.PerActivity;
 import com.example.hiotcloud.injection.module.ActivityModule;
 import com.example.hiotcloud.test.mvptest.TestMVPActivity;

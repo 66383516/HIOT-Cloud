@@ -7,7 +7,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.hiotcloud.R;
-import com.example.hiotcloud.base.BaseActivity;
+import com.example.hiotcloud.test.fragmenttest.TestFragment;
+import com.example.hiotcloud.ui.base.BaseActivity;
 import com.example.hiotcloud.test.mvptest.model.User;
 
 import javax.inject.Inject;
@@ -34,6 +35,11 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
                 presenter.login(user);
             }
         });
+
+        getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.container_fragment_test,TestFragment.newInstance(R.drawable.test_photo))
+                .commit();
     }
 
     @Override
@@ -50,5 +56,7 @@ public class TestMVPActivity extends BaseActivity<TestView, TestPresenter> imple
     public void showMessage(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
+
+
 }
  
