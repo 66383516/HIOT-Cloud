@@ -13,20 +13,23 @@ import androidx.fragment.app.Fragment;
 import com.example.hiotcloud.R;
 
 /**
+ *
  */
 public class TestFragment extends Fragment {
+
     private static final String ARG_PARAM1 = "param1";
 
-    private static int mParam1;
+    private int mParam1;
 
     public TestFragment() {
-
+        // Required empty public constructor
     }
+
 
     public static TestFragment newInstance(int param1) {
         TestFragment fragment = new TestFragment();
         Bundle args = new Bundle();
-        args.putInt(ARG_PARAM1, mParam1);
+        args.putInt(ARG_PARAM1, param1);
         fragment.setArguments(args);
         return fragment;
     }
