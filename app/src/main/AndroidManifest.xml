@@ -24,6 +24,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".test.networktest.TestRetrofitActivity"></activity>
         <activity android:name=".test.lifecycletest.TestLifeCycleActivity"></activity>
         <activity android:name=".ui.main.SplashActivity"></activity>
         <activity

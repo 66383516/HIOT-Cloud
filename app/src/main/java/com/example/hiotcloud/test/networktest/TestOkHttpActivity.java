@@ -3,6 +3,7 @@ package com.example.hiotcloud.test.networktest;
 import androidx.annotation.LongDef;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +15,7 @@ import com.example.hiotcloud.R;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
+import java.sql.BatchUpdateException;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -22,12 +24,13 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+import static com.example.hiotcloud.test.networktest.UserBean.token;
+
 /**
  * okhttp框架测试类
  */
 public class TestOkHttpActivity extends AppCompatActivity {
 
-    //private static final String basUrl = "http://www.baidu.com";
     private static final String basUrl = "http://114.67.88.191:8080";
     private static final String TAG = "TestOkHttpActivity";
 
@@ -36,24 +39,6 @@ public class TestOkHttpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_test_ok_http);
-
-        //execute方法测试
-        Button btnExecute = findViewById(R.id.btn_okhttp_execute);
-        btnExecute.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                testExecute();
-            }
-        });
-
-        //enqueue方法测试
-        Button btnEnqueue = findViewById(R.id.btn_okhttp_enqueue);
-        btnEnqueue.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                testEnqueue();
-            }
-        });
 
         //登录
         Button btnLogin = findViewById(R.id.btn_okhttp_login);
@@ -69,7 +54,7 @@ public class TestOkHttpActivity extends AppCompatActivity {
         btnUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUserInfo("b2965e934986416db8f1a46f962b4ad4_ef02e7d0d64d40c29115dfae0f4f20e4_use");
+                getUserInfo(token);
             }
         });
 
@@ -78,8 +63,18 @@ public class TestOkHttpActivity extends AppCompatActivity {
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateEmail("b2965e934986416db8f1a46f962b4ad4_ef02e7d0d64d40c29115dfae0f4f20e4_use",
-                            "110222223@qq.com");
+                UpdateEmail(token,
+                            "110222qq223@qq.com");
+            }
+        });
+
+        //跳转
+        Button btnTest = findViewById(R.id.btn_test);
+        btnTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent =new Intent(TestOkHttpActivity.this,TestRetrofitActivity.class);
+                startActivity(intent);
             }
         });
     }
@@ -121,35 +116,6 @@ public class TestOkHttpActivity extends AppCompatActivity {
         String url = basUrl + String.format("/auth/login?username=%s&password=%s&loginCode=%s",
                 userName, password, loginCode);
         Request request = new Request.Builder().post(body).url(url).build();
-        callEnqueue(okHttpClient, request);
-    }
-
-    /**
-     * 测试execute方法
-     */
-    private void testExecute() {
-        new Thread() {
-            @Override
-            public void run() {
-                super.run();
-                OkHttpClient okHttpClient = new OkHttpClient();
-                Request request = new Request.Builder().url(basUrl).build();
-                try {
-                    Response response = okHttpClient.newCall(request).execute();
-                    Log.d(TAG, "run: " + response.body().string());
-                } catch (IOException e) {
-                    Log.e(TAG, " testExecute: " + e.getMessage(), e);
-                }
-            }
-        }.start();
-    }
-
-    /**
-     * 测试enqueue方法
-     */
-    private void testEnqueue() {
-        OkHttpClient okHttpClient = new OkHttpClient();
-        Request request = new Request.Builder().url(basUrl).build();
         callEnqueue(okHttpClient, request);
     }
 
