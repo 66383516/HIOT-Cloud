@@ -7,7 +7,7 @@ import java.io.Serializable;
  */
 public class UserBean implements Serializable {
 
-    public static final String token ="b2965e934986416db8f1a46f962b4ad4_10e9b98223b64fdbad9362983248fb94_use";
+    public static final String token ="b2965e934986416db8f1a46f962b4ad4_2b6db1fa7bae4ba39ee6e43aea3d0025_use";
     //用户名
     private String username;
     //邮箱

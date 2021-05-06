@@ -58,7 +58,7 @@ public class TestRetrofitActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 updateemail(token,
-                        "qqqq11111@qq.com");
+                        "qqqqq11111@qq.com");
             }
         });
         //注册
@@ -76,9 +76,9 @@ public class TestRetrofitActivity extends AppCompatActivity {
      */
     private void register() {
         UserBean userBean = new UserBean();
-        userBean.setUsername("ddwddwddw");
+        userBean.setUsername("ddswddwddw");
         userBean.setPassword("abc123");
-        userBean.setEmail("1qqqq13@qq.com");
+        userBean.setEmail("1qqqq123@qq.com");
         userBean.setUserType("1");
         Call<ResponseBody> call = service.register(userBean);
         callEnqueue(call);

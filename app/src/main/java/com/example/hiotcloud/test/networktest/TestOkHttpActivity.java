@@ -45,7 +45,7 @@ public class TestOkHttpActivity extends AppCompatActivity {
         btnLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Login("ddw", "abc123", "app");
+                Login("zcy", "abc123", "app");
             }
         });
 
@@ -64,7 +64,7 @@ public class TestOkHttpActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 UpdateEmail(token,
-                            "110222qq223@qq.com");
+                            "1803080233@qq.com");
             }
         });
 
