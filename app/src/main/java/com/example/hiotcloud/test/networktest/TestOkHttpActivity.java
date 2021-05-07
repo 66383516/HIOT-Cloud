@@ -24,7 +24,6 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-import static com.example.hiotcloud.test.networktest.UserBean.token;
 
 /**
  * okhttp框架测试类
@@ -54,7 +53,7 @@ public class TestOkHttpActivity extends AppCompatActivity {
         btnUserInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                getUserInfo(token);
+                getUserInfo("fac7545d8b574eb6a36a9b3dd55f2ebe_cfa975b867a54e5b892ce5be335ea64f_use");
             }
         });
 
@@ -63,8 +62,8 @@ public class TestOkHttpActivity extends AppCompatActivity {
         btnUpdateEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                UpdateEmail(token,
-                            "1803080233@qq.com");
+                UpdateEmail("fac7545d8b574eb6a36a9b3dd55f2ebe_cfa975b867a54e5b892ce5be335ea64f_use",
+                            "180308011233@qq.com");
             }
         });
 

@@ -33,6 +33,8 @@ public interface TestRetfitService {
 
     @GET("/user/one")
     Call<ResponseBody> userinfo(@Header("Authorization") String authorization);
+    @GET("/user/one")
+    Call<ResultBase<UserBean>> userinfo2(@Header("Authorization") String authorization);
 
     @PUT("/user/email")
     Call<ResponseBody> updateemail(@Header("Authorization") String authorization, @Query("email") String email);
